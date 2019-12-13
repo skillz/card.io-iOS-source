@@ -164,7 +164,7 @@ def build(outdir=None, device_sdk=None, simulator_sdk=None, **kwargs):
 
                 # Build the Archive release
                 print(colors.blue("({build_config}) Building Archive (arm* architectures specified in build config)".format(**locals())))
-                base_xcodebuild_command = "xcrun xcodebuild -scheme \"CardIO Static Library\" -target CardIO-static -configuration {build_config} archive".format(**locals())
+                base_xcodebuild_command = "xcrun xcodebuild -scheme \"CardIO Static Library\" -destination 'platform=iOS,name=Zeus' -target CardIO-static -configuration {build_config} archive".format(**locals())
                 build_dir = os.path.join(temp_dir, build_config, "Archive")
                 arch_build_dirs["archive"] = build_dir
                 os.makedirs(build_dir)
